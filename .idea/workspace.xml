@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5ec6479f-5fa6-4ed1-81ad-129adcb33947" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CatList/CatList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CatList/CatList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CatList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CatList/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageList/ImageList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageList/ImageList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageList/Slider/Slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageList/Slider/Slider.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageList/Slider/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageList/Slider/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageList/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,49 +14,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-              <folding>
-                <element signature="n#!!block;n#componentWillMount#0;n#App#0" />
-                <element signature="n#!!block;n#render#0;n#App#0" />
-                <element signature="n#!!block;n#changeBgi#0;n#App#0" />
-                <element signature="n#!!block;n#getImages#0;n#App#0" />
-                <element signature="n#!!block;n#removeCat#0;n#App#0" />
-                <element signature="n#!!block;n#removeImage#0;n#App#0" />
-                <element signature="n#!!block;n#addImage#0;n#App#0" />
-                <element signature="n#!!block;n#updateCat#0;n#App#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ImageList/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="157" selection-start-line="157" selection-end-line="157" />
-              <folding>
-                <element signature="n#!!block;n#render#0;n#ImageList#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/ImageList/Slider/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-              <folding>
-                <element signature="n#!!block;n#prevSlide#0;n#Slider#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Slider.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ImageList/Slider/Slider.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -72,6 +23,19 @@
                 <element signature="e#722#756#0" />
                 <element signature="e#786#822#0" />
                 <element signature="e#853#890#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/CatList/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="457">
+              <caret line="168" column="72" selection-start-line="168" selection-start-column="72" selection-end-line="168" selection-end-column="72" />
+              <folding>
+                <element signature="n#!!block;n#displayRemoveModal#0;n#CatList#0" />
+                <element signature="n#!!block;n#submitRemoveHandler#0;n#CatList#0" />
               </folding>
             </state>
           </provider>
@@ -122,10 +86,10 @@
         <option value="$PROJECT_DIR$/src/components/ImageList/ImageList.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/CatList/CatList.css" />
-        <option value="$PROJECT_DIR$/src/components/CatList/index.js" />
         <option value="$PROJECT_DIR$/src/components/ImageList/index.js" />
         <option value="$PROJECT_DIR$/src/components/ImageList/Slider/Slider.css" />
         <option value="$PROJECT_DIR$/src/components/ImageList/Slider/index.js" />
+        <option value="$PROJECT_DIR$/src/components/CatList/index.js" />
       </list>
     </option>
   </component>
@@ -184,15 +148,7 @@
               <item name="react-test-task" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ImageList" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="react-test-task" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-test-task" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ImageList" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Slider" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CatList" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="react-test-task" type="b2602c69:ProjectViewProjectNode" />
@@ -268,12 +224,12 @@
       <workItem from="1550520907830" duration="717000" />
       <workItem from="1550559118448" duration="15995000" />
       <workItem from="1550657260832" duration="83000" />
-      <workItem from="1550664659595" duration="2941000" />
+      <workItem from="1550664659595" duration="3638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184042000" />
+    <option name="totallyTimeSpent" value="184739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -287,7 +243,7 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32965517" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18880208" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18880208" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -614,18 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CatList/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="178" column="21" lean-forward="true" selection-start-line="178" selection-start-column="21" selection-end-line="178" selection-end-column="21" />
-          <folding>
-            <element signature="e#5886#6783#0" />
-            <element signature="n#!!block;n#displayRemoveModal#0;n#CatList#0" />
-            <element signature="n#!!block;n#submitRemoveHandler#0;n#CatList#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CatList/CatList.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -637,6 +581,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ImageList/ImageList.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ImageList/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
+          <folding>
+            <element signature="n#!!block;n#render#0;n#ImageList#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -657,20 +618,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ImageList/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/ImageList/Slider/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="157" selection-start-line="157" selection-end-line="157" />
+        <state relative-caret-position="-1720">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
           <folding>
-            <element signature="n#!!block;n#render#0;n#ImageList#0" />
+            <element signature="n#!!block;n#prevSlide#0;n#Slider#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ImageList/ImageList.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -686,12 +640,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ImageList/Slider/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/CatList/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        <state relative-caret-position="457">
+          <caret line="168" column="72" selection-start-line="168" selection-start-column="72" selection-end-line="168" selection-end-column="72" />
           <folding>
-            <element signature="n#!!block;n#prevSlide#0;n#Slider#0" />
+            <element signature="n#!!block;n#displayRemoveModal#0;n#CatList#0" />
+            <element signature="n#!!block;n#submitRemoveHandler#0;n#CatList#0" />
           </folding>
         </state>
       </provider>

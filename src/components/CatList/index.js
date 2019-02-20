@@ -166,6 +166,7 @@ class CatList extends Component{
                         showAddModal: false,
                         newCatName: ''
                     });
+                    document.getElementById("add-cat-field").value = '';
                 }else if(res.status === 409){
                     this.setState({
                         inputError: true
