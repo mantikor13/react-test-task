@@ -15,10 +15,21 @@ class CatList extends Component{
         removeCat: this.props.removeCat
     };
 
+    componentDidMount(){
+        window.addEventListener('keydown', e => {
+            if(e.key === 'Escape'){
+                this.setState({
+                    showAddModal: false,
+                    showRemoveModal: false
+                });
+            }
+        });
+    }
+
     render(){
         const {cats, changeBgi, getImages} = this.props;
         const catsContent = cats.map((cat, i) => {
-                const style = {backgroundImage: `url(${cat.image})`};
+                const style = {backgroundImage: `url(http://api.programator.sk/images/210x125/${cat.image})`};
                 return (<div
                     className='cat'
                     key={i}
@@ -63,8 +74,7 @@ class CatList extends Component{
                 </div>
 
                 <div className={this.state.showAddModal ? 'active add-cat' : 'add-cat'}>
-                    <div className="add-cat__overlay" onClick={(e) => this.displayAddModal(false, e)}>
-                    </div>
+                    <div className="add-cat__overlay" onClick={(e) => this.displayAddModal(false, e)}/>
                     <div className="add-cat_inner">
                         <a href="#" className="add-cat__close" onClick={(e) => this.displayAddModal(false, e)}>
                             <svg
@@ -93,6 +103,9 @@ class CatList extends Component{
                             </svg>
                             pridať
                         </a>
+                        <div className="name-existing-error hide">
+                            <p>Kategória s takýmto názvom už existuje</p>
+                        </div>
                     </div>
                 </div>
 
@@ -130,11 +143,47 @@ class CatList extends Component{
 
     submitAddHandler(e){
         e.preventDefault();
+
         if(this.state.newCatName.length > 0 && this.state.newCatName.indexOf('/') === -1){
-            this.state.addCat(this.state.newCatName);
-            this.setState({
-                showAddModal: false
-            })
+            let body = {
+                "name": this.state.newCatName
+            };
+
+            body = JSON.stringify(body);
+
+            fetch('http://api.programator.sk/gallery', {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                body: body
+            }).then(res => {
+
+                if(res.status === 201){
+                    this.state.addCat(this.state.newCatName);
+                    this.setState({
+                        showAddModal: false,
+                        newCatName: ''
+                    });
+                }else if(res.status === 409){
+                    this.setState({
+                        inputError: true
+                    });
+                    let errorMessage = document.querySelector(".name-existing-error");
+                    function listener(){
+                        errorMessage.classList.add("hide");
+                        errorMessage.classList.remove("active");
+
+                        errorMessage.removeEventListener("transitionend", listener);
+                    }
+                    errorMessage.addEventListener("transitionend", listener);
+                    errorMessage.classList.remove("hide");
+                    setTimeout(() => {
+                        errorMessage.classList.add("active");
+                    }, 0);
+                }
+            });
         }else{
             this.setState({
                 inputError: true

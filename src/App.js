@@ -20,76 +20,77 @@ class App extends Component {
         currentCatImages: [],
     };
 
-    componentWillMount() {
+    async componentWillMount() {
+        const url = `http://api.programator.sk/gallery`;
 
-        fetch('http://api.programator.sk/gallery')
-            .then(response => response.json())
-            .then(data => {
+        async function setImages(galleries) {
+            let changeDefaultData = false;
 
-                let changeDefaultData = false;
+            for(const gallery of galleries){
 
-                data.galleries.forEach((gall, i) => {
+                let state = this.state.cats;
 
-                    fetch(`http://api.programator.sk/gallery/` + gall.path)
-                        .then(response => response.json())
-                        .then(data => {
+                const response = await fetch(url + "/" + gallery.path);
+                const imageData = await response.json();
 
-                            const numOfImages = data.images.length;
+                if(imageData.images.length > 0){
+                    const newCat = {
+                        path: gallery.path,
+                        name: gallery.name,
+                        image: imageData.images[0].fullpath,
+                        numOfImages: imageData.images.length
+                    };
+                    state.push(newCat);
 
-                            if(numOfImages !== 0){
-                                fetch(`http://api.programator.sk/images/0x0/` + data.images[0].fullpath)
-                                    .then((response) => {
-                                        const newCat = {
-                                            path: gall.path,
-                                            name: gall.name,
-                                            image: response.url,
-                                            numOfImages: numOfImages
-                                        };
-                                        if(!changeDefaultData){
-                                            this.setState({
-                                                cats: [newCat],
-                                            });
-                                            changeDefaultData = true;
-                                        }else{
-                                            this.setState({
-                                                cats: [...this.state.cats, newCat],
-                                            });
-                                        }
-                                        if(!this.state.currentCatName){
-                                            this.setState({
-                                                bgi: {backgroundImage: `url(${newCat.image})`}
-                                            })
-                                        }
-                                    })
-                            }else{
-                                let newCat = {
-                                    path: gall.path,
-                                    name: gall.name,
-                                    image: undefined,
-                                    numOfImages: 0
-                                };
-                                if(!changeDefaultData){
-                                    this.setState({
-                                        cats: [newCat],
-                                    });
-                                    changeDefaultData = true;
-                                }else{
-                                    this.setState({
-                                        cats: [...this.state.cats, newCat],
-                                    });
-                                }
-                                if(!this.state.currentCatName){
-                                    this.setState({
-                                        bgi: {backgroundImage: `url(${newCat.image})`}
-                                    })
-                                }
-                            }
+                    if(!changeDefaultData){
+                        this.setState({
+                            cats: [newCat],
                         });
+                        changeDefaultData = true;
+                    }else{
+                        this.setState({
+                            cats: state
+                        });
+                    }
+                    if(!this.state.currentCatName){
+                        this.setState({
+                            bgi: {backgroundImage: `url(http://api.programator.sk/images/210x125/${newCat.image})`}
+                        })
+                    }
+                }else{
+                    const newCat = {
+                        path: gallery.path,
+                        name: gallery.name,
+                        image: undefined,
+                        numOfImages: 0
+                    };
+                    state.push(newCat);
 
-                });
-            });
+                    if(!changeDefaultData){
+                        this.setState({
+                            cats: [newCat],
+                        });
+                        changeDefaultData = true;
+                    }else{
+                        this.setState({
+                            cats: state
+                        });
+                    }
+                    if(!this.state.currentCatName){
+                        this.setState({
+                            bgi: {backgroundImage: undefined}
+                        })
+                    }
+                }
+
+            }
+        }
+        let bindSetImages = setImages.bind(this);
+
+        const res = await fetch(url);
+        const data = await res.json();
+        await bindSetImages(data.galleries);
     }
-
 
     render() {
         return (
@@ -147,7 +148,7 @@ class App extends Component {
 
                 if(data.images.length > 0){
                     this.setState({
-                        bgi: {backgroundImage: `url(http://api.programator.sk/images/0x0/${data.images[0].fullpath})`}
+                        bgi: {backgroundImage: `url(http://api.programator.sk/images/210x125/${data.images[0].fullpath})`}
                     })
                 }
 
@@ -155,34 +156,14 @@ class App extends Component {
     }
 
     addCat(name){
-        let body = {
-            "name": name
-        };
-
-        body = JSON.stringify(body);
-
-        fetch('http://api.programator.sk/gallery', {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            body: body
-        }).then(res => {
-
-            if(res.status === 201){
-                this.setState({
-                    cats: [...this.state.cats, {
-                        name: name,
-                        path: name,
-                        image: undefined,
-                        numOfImages: 0
-                    }],
-                })
-            }
+        this.setState({
+            cats: [...this.state.cats, {
+                name: name,
+                path: name,
+                image: undefined,
+                numOfImages: 0
+            }],
         })
-
-
     }
 
     removeCat(path){
@@ -251,7 +232,7 @@ class App extends Component {
                 const cats = this.state.cats.map((cat) => {
                     if(cat.name === this.state.currentCatName){
                         cat.numOfImages = data.images.length;
-                        cat.image = 'http://api.programator.sk/images/0x0/' + data.images[0].fullpath;
+                        cat.image = data.images[0].fullpath;
 
                     }
                     return cat

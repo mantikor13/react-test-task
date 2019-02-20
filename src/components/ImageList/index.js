@@ -21,6 +21,15 @@ class ImageList extends Component{
         if(this.props.match.params.name !== this.props.imageName && this.props.match !== undefined){
             this.props.getImages(this.props.match.params.name)
         }
+        window.addEventListener('keydown', e => {
+            if(e.key === 'Escape'){
+                this.setState({
+                    showSlider: false,
+                    showAddModal: false,
+                    showRemoveModal: false
+                });
+            }
+        });
     }
 
     render(){
@@ -31,9 +40,9 @@ class ImageList extends Component{
                     return (<div
                         className='image'
                         key={i}
-                        onClick={() => this.displaySlider(true, i)}>
+                        onClick={(e) => this.displaySlider(true, i, e)}>
                         <a href="#" className="image__delete" onClick={(e) => this.displayRemoveModal(true, image.fullpath, e)}>
-                            <svg
+                            <svg className="image__delete-svg"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="28px" height="28px">
                                 <path fill="rgb(200, 3, 3)"
@@ -138,28 +147,25 @@ class ImageList extends Component{
         })
     }
 
-    displaySlider(display, i){
-        console.log(i);
-        this.setState({
-            showSlider: display,
-            currentSlide: i
-        })
+    displaySlider(display, i, e){
+        if(!e.target.classList.contains("image__delete-svg") && !e.target.parentNode.classList.contains("image__delete-svg")){
+            this.setState({
+                showSlider: display,
+                currentSlide: i
+            })
+        }
     }
 
     prevSlide(){
-        if(this.state.currentSlide !== 0){
-            this.setState({
-                currentSlide: this.state.currentSlide - 1
-            })
-        }
+        this.setState({
+            currentSlide: this.state.currentSlide - 1
+        })
     }
 
     nextSlide(){
-        if(this.state.currentSlide !== this.props.images.lenght - 1){
-            this.setState({
-                currentSlide: this.state.currentSlide + 1
-            })
-        }
+        this.setState({
+            currentSlide: this.state.currentSlide + 1
+        })
     }
 }
 
